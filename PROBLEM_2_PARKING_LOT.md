@@ -53,7 +53,7 @@ status
 Output (from console)
 
 ```text
-Created parking lot with 10 slots
+Created parking lot with 6 slots
 Allocated slot number: 1
 Allocated slot number: 2
 Allocated slot number: 3
