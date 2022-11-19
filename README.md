@@ -1,4 +1,4 @@
-Following application is a command line application or script reads the commands to run an automated parking system and do the tasks.
+Following application is a command line application that reads the commands to run an automated parking system and do the tasks.
 
 Pre-requisites :
 1. maven should be installed. Following article can be referred to setup maven :
@@ -35,7 +35,7 @@ File -> Project From Existing Sources -> Select Directory (select maven while im
 
 ASSUMPTIONS
 
-7. In case parking has not been created the message "Parking has not been set up" is outputted.
+7. In case parking has not been created the message "Parking Space has not been set up" is printed on the console.
 
 8. No slots are printed that do not have a vehicle allotted to them. 
 Exp test case: Test4.txt file output is :
