@@ -5,7 +5,7 @@ import org.junit.Test;
  */
 public class ParkingMainTest
 {
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void testMain() {
 
         String testCase="src/test/resources/Test2.txt";
@@ -41,10 +41,46 @@ public class ParkingMainTest
 
     }
 
+    @Test
+    public void checkingWhenParkingLotFull() {
+
+        String testCase="src/test/resources/Test6.txt";
+        System.out.print(testCase+"\n");
+        String[] args = new String[1];
+        args[0] =testCase;
+        ParkingLotMainApplication.main(args);
+        System.out.print("\n");
+
+    }
+
     @Test(expected = IllegalArgumentException.class)
     public void testError2() {
 
         String testCase="src/test/resources/Test1.txt";
+        System.out.print(testCase+"\n");
+        String[] args = new String[1];
+        args[0] =testCase;
+        ParkingLotMainApplication.main(args);
+        System.out.print("\n");
+
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testError3() {
+
+        String testCase="src/test/resources/Test5.txt";
+        System.out.print(testCase+"\n");
+        String[] args = new String[1];
+        args[0] =testCase;
+        ParkingLotMainApplication.main(args);
+        System.out.print("\n");
+
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testError4() {
+
+        String testCase="src/test/resources/Test7.txt";
         System.out.print(testCase+"\n");
         String[] args = new String[1];
         args[0] =testCase;

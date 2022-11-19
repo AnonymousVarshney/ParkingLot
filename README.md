@@ -39,15 +39,18 @@ ASSUMPTIONS
 8. No slots are printed that do not have a vehicle allotted to them. 
 Exp test case: Test4.txt file output is :
 
+9. Assumption hs been made the commands in the file are separated by new line and each command is separated by a
+   space as a character.
+
 src/test/resources/Test4.txt
 Created parking lot with 6 slots
 Slot No. Registration No.
 
-9. Design is Set for a Single Floor , single entry gate and single exit gate right now but more 
+10. Design is Set for a Single Floor , single entry gate and single exit gate right now but more 
    can be added. 
 
-10. Solution is extensible to different type of vehicle and different type of parking spaces for them,
+11. Solution is extensible to different type of vehicle and different type of parking spaces for them,
     and logic of cost of different vehicle and their parking spaces can be different. (Can be done
     by extending the Vehicle class).
 
-
+12. git archive -o latest.zip HEAD

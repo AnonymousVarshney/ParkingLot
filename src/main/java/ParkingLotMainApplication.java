@@ -43,8 +43,7 @@ public class ParkingLotMainApplication {
                     Vehicle vehicle = new FourWheelerVehicle(parkArr[1]);
 
                     if(null==parkingSystemAdministrator){
-                        System.out.print("Parking has not been setup");
-                        break;
+                        throw new IllegalArgumentException("Parking has not been setup");
                     }
 
                     Ticket ticket = parkingSystemAdministrator.getAutomatedEntrySystem()
@@ -56,8 +55,7 @@ public class ParkingLotMainApplication {
                 }else if(line.contains("leave")){
                     String[] leaveArr=line.split(" ");
                     if(null==parkingSystemAdministrator){
-                        System.out.print("Parking has not been setup");
-                        break;
+                        throw new IllegalArgumentException("Parking has not been setup");
                     }
                     Ticket ticket=ticketService.checkIfTicketExists(leaveArr[1]);
                     if(ticket!=null){
@@ -72,8 +70,7 @@ public class ParkingLotMainApplication {
 
                 }else if(line.contains("status")){
                     if(null==parkingSystemAdministrator){
-                        System.out.print("Parking has not been setup");
-                        break;
+                        throw new IllegalArgumentException("Parking has not been setup");
                     }
                     System.out.print(String.format("%-8s %-17s", "Slot No.","Registration No.\n"));
                     for(ParkingSpot spot:parkingSystemAdministrator.getFloorInformation(1).getParkingSpots()){
@@ -92,6 +89,10 @@ public class ParkingLotMainApplication {
         }
         catch (ArrayIndexOutOfBoundsException e){
             System.out.print("Input format is incorrect , please contact System Administrator");
+            throw new IllegalArgumentException(e.getMessage());
+        }
+        catch (IllegalArgumentException e){
+            System.out.print(e.getMessage()+"\n");
             throw new IllegalArgumentException(e.getMessage());
         }
         catch(IOException e)
