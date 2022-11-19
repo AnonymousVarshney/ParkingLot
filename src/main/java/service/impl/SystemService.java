@@ -1,7 +1,9 @@
 package service.impl;
 
+import constant.AppConstants;
 import model.parking.ParkingFloor;
 import model.parking.ParkingSpace;
+import model.parking.ParkingSpot;
 import service.ISystemService;
 
 import java.util.ArrayList;
@@ -57,5 +59,18 @@ public class SystemService implements ISystemService {
     public ParkingFloor getParkingInformation(int floorNumber) {
         return parkingSpace.getParkingFloors().stream().filter(parkingFloor -> parkingFloor.getFloorNumber()==floorNumber)
                 .collect(Collectors.toList()).get(0);
+    }
+
+    @Override
+    public void showAllParkingsForFloor(ParkingFloor parkingFloor) {
+        System.out.print(String.format("%-8s %-17s", AppConstants.SLOT_NO, AppConstants.REGISTRATION_NO));
+        System.out.print("\n");
+        for (ParkingSpot spot : parkingFloor.getParkingSpots()) {
+            if (spot.getVehicle() != null) {
+                System.out.print(String.format("%-8s %-1s", spot.getSpotNumber(), spot.getVehicle().getVehicleNumber()));
+                System.out.print("\n");
+            }
+
+        }
     }
 }

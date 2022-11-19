@@ -1,6 +1,9 @@
 package model.vehicle;
 
-
+/*
+Extension of Vehicle abstract class , more implementation can be added
+also different vehicle can have different fare calculation algorithm.
+ */
 public class FourWheelerVehicle extends Vehicle{
 
     public FourWheelerVehicle(String vehicleNumber) {

@@ -40,6 +40,10 @@ public class ParkingSystemAdministrator{
         this.iSystemService.addExitGate(floorNumber, gateNumber);
     }
 
+    public void showAllParkingsForFloor(ParkingFloor parkingFloor){
+        this.iSystemService.showAllParkingsForFloor(parkingFloor);
+    }
+
     public void removeEntranceGate(int floorNumber, int gateNumber){
         this.iSystemService.removeEntranceGate(floorNumber, gateNumber);
     }

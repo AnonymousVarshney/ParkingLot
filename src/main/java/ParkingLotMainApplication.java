@@ -74,15 +74,8 @@ public class ParkingLotMainApplication {
                     if(null==parkingSystemAdministrator){
                         throw new IllegalArgumentException(ErrorConstants.PARKING_SPACE_NOT_SETUP);
                     }
-                    System.out.print(String.format("%-8s %-17s", AppConstants.SLOT_NO,AppConstants.REGISTRATION_NO));
-                    System.out.print("\n");
-                    for(ParkingSpot spot:parkingSystemAdministrator.getFloorInformation(1).getParkingSpots()){
-                        if(spot.getVehicle()!=null) {
-                            System.out.print(String.format("%-8s %-1s", spot.getSpotNumber(), spot.getVehicle().getVehicleNumber()));
-                            System.out.print("\n");
-                        }
+                    parkingSystemAdministrator.showAllParkingsForFloor(parkingSystemAdministrator.getFloorInformation(1));
 
-                    }
                 }
 
                 System.out.print("\n");

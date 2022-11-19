@@ -17,4 +17,6 @@ public interface ISystemService {
     ParkingFloor removeExitGate(int floorNumber, int gateNumber);
 
     ParkingFloor getParkingInformation(int floorNumber);
+
+    void showAllParkingsForFloor(ParkingFloor parkingFloor);
 }

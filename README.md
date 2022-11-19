@@ -17,17 +17,18 @@ present under src/test/java folder and test files under src/test/resources.
 4. Above command will also create class files and jar of the project which 
 can be used to execute the java code from the command line.
 
-5. 
+5. Commands to run the application
+```text
 D:\ParkingLot>java -jar target/ParkingLot-1.jar "src/main/resources/Test.txt"
 
 "src/main/resources/Test.txt" -> Location of the file if it is in resources folder
-
+```
 OR 
-
+```text
 D:\ParkingLot>java -jar target/ParkingLot-1.jar "D:\ParkingLot\src\main\resources\Test.txt"
 
 "D:\ParkingLot\src\main\resources\Test.txt" -> Fully Qualified path of the file
-
+```
 
 6. This project can also be imported to Intellij as a maven project.
 File -> Project From Existing Sources -> Select Directory (select maven while importing)
@@ -41,16 +42,19 @@ Exp test case: Test4.txt file output is :
 
 9. Assumption hs been made the commands in the file are separated by new line and each command is separated by a
    space as a character.
-
+```text
 src/test/resources/Test4.txt
 Created parking lot with 6 slots
 Slot No. Registration No.
-
+```
 10. Design is Set for a Single Floor , single entry gate and single exit gate right now but more 
-   can be added. 
+   can be added during admin setup. 
 
 11. Solution is extensible to different type of vehicle and different type of parking spaces for them,
     and logic of cost of different vehicle and their parking spaces can be different. (Can be done
     by extending the Vehicle class).
 
-12. git archive -o latest.zip HEAD
+12. To zip the project : 
+```text
+git archive -o latest.zip HEAD
+```
