@@ -1,4 +1,6 @@
 import admin.ParkingSystemAdministrator;
+import constant.AppConstants;
+import constant.ErrorConstants;
 import model.parking.ParkingSpot;
 import model.ticket.Ticket;
 import model.vehicle.FourWheelerVehicle;
@@ -16,7 +18,7 @@ public class ParkingLotMainApplication {
     public static void main(String[] args) {
 
         if(args==null || args.length==0){
-            throw new IllegalArgumentException("No File Name found");
+            throw new IllegalArgumentException(ErrorConstants.FILE_NOT_FOUND);
         }
 
         try
@@ -30,49 +32,50 @@ public class ParkingLotMainApplication {
             String line;
             while((line=br.readLine())!=null)
             {
-                if(line.contains("create")){
+                if(line.contains(AppConstants.CREATE)){
 
                     String[] createArr=line.split(" ");
                     AdminSetup adminSetup=new AdminSetup();
                     parkingSystemAdministrator=adminSetup.createParkingSystemAdministrator(Integer.valueOf(createArr[1]));
                     ticketService=parkingSystemAdministrator.getTicketService();
-                    System.out.print("Created parking lot with "+createArr[1]+" slots");
+                    System.out.print(AppConstants.CREATED_PARKING_SLOT+createArr[1]+AppConstants.SLOTS);
 
-                }else if(line.contains("park")){
+                }else if(line.contains(AppConstants.PARK)){
                     String[] parkArr=line.split(" ");
                     Vehicle vehicle = new FourWheelerVehicle(parkArr[1]);
 
                     if(null==parkingSystemAdministrator){
-                        throw new IllegalArgumentException("Parking has not been setup");
+                        throw new IllegalArgumentException(ErrorConstants.PARKING_SPACE_NOT_SETUP);
                     }
 
                     Ticket ticket = parkingSystemAdministrator.getAutomatedEntrySystem()
                             .getBookParkingService().bookParking(1, vehicle);
                     if(ticket!=null)
-                         System.out.print("Allocated slot number: "+ticket.getParkingSpot().getSpotNumber());
+                         System.out.print(AppConstants.ALLOCATED_SLOT+ticket.getParkingSpot().getSpotNumber());
                     else
-                        System.out.print("Sorry, parking lot is full");
-                }else if(line.contains("leave")){
+                        System.out.print(AppConstants.FULL_PARKING_LOT);
+                }else if(line.contains(AppConstants.LEAVE)){
                     String[] leaveArr=line.split(" ");
                     if(null==parkingSystemAdministrator){
-                        throw new IllegalArgumentException("Parking has not been setup");
+                        throw new IllegalArgumentException(ErrorConstants.PARKING_SPACE_NOT_SETUP);
                     }
                     Ticket ticket=ticketService.checkIfTicketExists(leaveArr[1]);
                     if(ticket!=null){
                         Integer cost = parkingSystemAdministrator.getAutomatedExitSystem().
                                 getFreeParkingService().freeParking(ticket,Integer.valueOf(leaveArr[2]));
-                        System.out.print("Registration Number "+leaveArr[1] +" from Slot "+ticket.getParkingSpot().getSpotNumber()+
-                                " has left with Charge "+cost);
+                        System.out.print(AppConstants.REGISTRATION_NUMBER+leaveArr[1] +" from Slot "+ticket.getParkingSpot().getSpotNumber()+
+                                AppConstants.HAS_LEFT_CHARGE+cost);
                     }else{
-                        System.out.print("Registration Number " + leaveArr[1] + " not found");
+                        System.out.print(AppConstants.REGISTRATION_NUMBER + leaveArr[1] + " not found");
                     }
 
 
-                }else if(line.contains("status")){
+                }else if(line.contains(AppConstants.STATUS)){
                     if(null==parkingSystemAdministrator){
-                        throw new IllegalArgumentException("Parking has not been setup");
+                        throw new IllegalArgumentException(ErrorConstants.PARKING_SPACE_NOT_SETUP);
                     }
-                    System.out.print(String.format("%-8s %-17s", "Slot No.","Registration No.\n"));
+                    System.out.print(String.format("%-8s %-17s", AppConstants.SLOT_NO,AppConstants.REGISTRATION_NO));
+                    System.out.print("\n");
                     for(ParkingSpot spot:parkingSystemAdministrator.getFloorInformation(1).getParkingSpots()){
                         if(spot.getVehicle()!=null) {
                             System.out.print(String.format("%-8s %-1s", spot.getSpotNumber(), spot.getVehicle().getVehicleNumber()));
@@ -88,7 +91,7 @@ public class ParkingLotMainApplication {
 
         }
         catch (ArrayIndexOutOfBoundsException e){
-            System.out.print("Input format is incorrect , please contact System Administrator");
+            System.out.print(ErrorConstants.INCORRECT_INPUT_FORMAT);
             throw new IllegalArgumentException(e.getMessage());
         }
         catch (IllegalArgumentException e){
@@ -97,8 +100,7 @@ public class ParkingLotMainApplication {
         }
         catch(IOException e)
         {
-            System.out.print("Some exception has occurred allotting parking , " +
-                    "please contact System Administrator");
+            System.out.print(ErrorConstants.SYSTEM_EXCEPTION);
             //e.printStackTrace();
         }
     }

@@ -4,6 +4,10 @@ import model.parking.ParkingFloor;
 import service.ISystemService;
 import service.impl.TicketService;
 
+/*
+This would be used to handle any admin related work like adding floors or parking slots
+Also this is used to get instance of entry gate system , exit gate system , and ticket generation service
+*/
 public class ParkingSystemAdministrator{
     private ISystemService iSystemService;
     private AutomatedEntrySystem automatedEntrySystem;

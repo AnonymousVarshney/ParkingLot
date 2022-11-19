@@ -52,3 +52,4 @@ ParkingLot.iml
 target/test-classes/Test5.txt
 target/test-classes/Test6.txt
 target/test-classes/Test7.txt
+*.class
