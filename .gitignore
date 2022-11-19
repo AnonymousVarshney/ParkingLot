@@ -46,3 +46,6 @@ target/test-classes/Test1.txt
 target/test-classes/Test2.txt
 target/test-classes/Test3.txt
 target/test-classes/Test4.txt
+.idea/modules.xml
+.idea/libraries/Maven__junit_junit_4_4.xml
+ParkingLot.iml
