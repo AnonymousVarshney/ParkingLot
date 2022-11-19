@@ -1,3 +1,4 @@
+import model.parking.ParkingSpace;
 import org.junit.Test;
 
 /**
@@ -13,6 +14,7 @@ public class ParkingMainTest
             String[] args = new String[1];
             args[0] =testCase;
             ParkingLotMainApplication.main(args);
+            ParkingSpace.getInstance().setParkingFloors(null);
             System.out.print("\n");
 
     }
@@ -24,6 +26,7 @@ public class ParkingMainTest
             String[] args = new String[1];
             args[0] =testCase;
             ParkingLotMainApplication.main(args);
+        ParkingSpace.getInstance().setParkingFloors(null);
             System.out.print("\n");
 
 
@@ -37,6 +40,7 @@ public class ParkingMainTest
             String[] args = new String[1];
             args[0] =testCase;
             ParkingLotMainApplication.main(args);
+        ParkingSpace.getInstance().setParkingFloors(null);
             System.out.print("\n");
 
     }
@@ -49,6 +53,7 @@ public class ParkingMainTest
         String[] args = new String[1];
         args[0] =testCase;
         ParkingLotMainApplication.main(args);
+        ParkingSpace.getInstance().setParkingFloors(null);
         System.out.print("\n");
 
     }
@@ -61,6 +66,7 @@ public class ParkingMainTest
         String[] args = new String[1];
         args[0] =testCase;
         ParkingLotMainApplication.main(args);
+        ParkingSpace.getInstance().setParkingFloors(null);
         System.out.print("\n");
 
     }
@@ -73,6 +79,7 @@ public class ParkingMainTest
         String[] args = new String[1];
         args[0] =testCase;
         ParkingLotMainApplication.main(args);
+        ParkingSpace.getInstance().setParkingFloors(null);
         System.out.print("\n");
 
     }
@@ -85,6 +92,7 @@ public class ParkingMainTest
         String[] args = new String[1];
         args[0] =testCase;
         ParkingLotMainApplication.main(args);
+        ParkingSpace.getInstance().setParkingFloors(null);
         System.out.print("\n");
 
     }
