@@ -33,7 +33,9 @@ D:\ParkingLot>java -jar target/ParkingLot-1.jar "D:\ParkingLot\src\main\resource
 File -> Project From Existing Sources -> Select Directory (select maven while importing)
 
 ASSUMPTIONS
+
 7. In case parking has not been created the message "Parking has not been set up" is outputted.
+
 8. No slots are printed that do not have a vehicle allotted to them. 
 Exp test case: Test4.txt file output is :
 
